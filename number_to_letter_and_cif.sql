@@ -1,6 +1,6 @@
 /*==============================================================================
 Author: Manuel A. Berni
-Creation date: 16/10/2025
+Creation date: 15/10/2025
 Description: This package contains two functions, one converts a number to letters,
 and the other is an equivalent function from the rfunc library.
 
