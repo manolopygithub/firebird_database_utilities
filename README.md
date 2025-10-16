@@ -1,5 +1,4 @@
 # Firebird Database Utilities
-A serie of firebird database utilities that I have developed and used along the years
 =====================================================================================
 
 Introduction
