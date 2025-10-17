@@ -90,6 +90,10 @@ begin
   function cif (len smallint, string_a varchar(1024), string_b varchar (1024)) returns varchar (2048);
 end^
 
+SET TERM ; ^
+
+SET TERM ^ ;
+
 RECREATE PACKAGE BODY TOOLS
 AS
 begin
@@ -597,7 +601,7 @@ begin
     declare variable letter_number varchar (1000);
     declare variable i smallint;
     declare variable length_aux smallint;
-    declare variable is_significant_digit smallint;
+    declare variable is_significant_digit boolean;
     declare variable pos_gen smallint;
   begin
     if ((:num > 999999999999999) or (:num < 0)) then
@@ -630,15 +634,15 @@ begin
     else
       text_number = :text_number_aux;
 
-    is_significant_digit = 0;
+    is_significant_digit = False;
     pos_gen = 1;
     letter_number = '';
 
     while (:pos_gen <= 15) do
     begin
-      if ((:is_significant_digit = 1) or (substring(:text_number from :pos_gen for 1) <> '0')) then
+      if ((:is_significant_digit = True) or (substring(:text_number from :pos_gen for 1) <> '0')) then
       begin
-        is_significant_digit = 1;
+        is_significant_digit = True;
 
         if (mod((:pos_gen - 1), 3) = 0) then
           letter_number = hundred (:text_number, :pos_gen, :letter_number);
